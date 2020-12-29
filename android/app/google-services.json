@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "370041313581",
+    "firebase_url": "https://mythesis-recheck.firebaseio.com",
+    "project_id": "mythesis-recheck",
+    "storage_bucket": "mythesis-recheck.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370041313581:android:2e884976ba868cbfdf1ba4",
+        "android_client_info": {
+          "package_name": "com.example.recheck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370041313581-7ti0mvv4v6rs5apjrgotfsf7fm6eucje.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.recheck",
+            "certificate_hash": "3b669b0eca251ab53c9dbb5361df307246a78c32"
+          }
+        },
+        {
+          "client_id": "370041313581-pustuacht312l1juc959bij3p9d56j3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.recheck",
+            "certificate_hash": "d4109a2ac6ce09b9fd8c778e525af6d2d0b8e6f3"
+          }
+        },
+        {
+          "client_id": "370041313581-jmph47baemo67kenpqj7hvvi97vpq3ap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqmR0LMESfys3qLMLv9XHmBrWu1uDpRBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370041313581-jmph47baemo67kenpqj7hvvi97vpq3ap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
