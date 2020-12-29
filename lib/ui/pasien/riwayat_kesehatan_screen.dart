@@ -44,17 +44,17 @@ class _RiwayatSehatScreenState extends State<RiwayatSehatScreen> {
       appBar: AppBar(
         title: Text("Riwayat Kesehatan"),
       ),
-      body: StreamBuilder<QuerySnapshot>(
+      body: StreamBuilder<QuerySnapshot>( //menampilkan riwayat pemeriksaan pasien berdasarkan email yang digunakan
         stream: firestore
             .collection('users')
             .doc(widget.email)
-            .collection("listDataPasien").orderBy('Tanggal', descending: true)
+            .collection("listDataPasien").orderBy('Tanggal', descending: true) //ambil collection 'listDataPasien' dan sorting berdasarkan field 'Tanggal'
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) return new Text("There is no data");
           return ListView.separated(
               shrinkWrap: true,
-              itemCount: snapshot.data.docs.length,
+              itemCount: snapshot.data.docs.length, //buat list data sebanyak jumlah riwayat yang dikumpulkan
               separatorBuilder: (context, index){
                 return Container(height: 1, color: Colors.black12);
               },
@@ -62,13 +62,13 @@ class _RiwayatSehatScreenState extends State<RiwayatSehatScreen> {
                 Map<String, dynamic> data = snapshot.data.docs.elementAt(index).data();
                 Timestamp timestamp = data['Tanggal'];
                 return ListTile(
-                  title: Text(DateFormat('dd MMMM yyyy – kk:mm').format(timestamp.toDate())),
+                  title: Text(DateFormat('dd MMMM yyyy – kk:mm').format(timestamp.toDate())), //format date time
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(data['Jenis Kelamin']),
                       Text(data['BPM'].toString()+" BPM"),
-                      Text(data['Suhu']+" \u2103"),
+                      Text(data['Suhu']+" \u2103"), //unicode untuk derajat celcius
                       Text(data['Umur'].toString()+" Tahun"),
                       Text(data['Status'].toString().toUpperCase()),
                     ],

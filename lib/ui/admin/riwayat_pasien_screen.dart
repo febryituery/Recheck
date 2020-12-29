@@ -43,7 +43,7 @@ class _RiwayatPasienScreenState extends State<RiwayatPasienScreen> {
     });
   }
 
-  Future<List<DocumentPasien>> getAllDocument() async {
+  Future<List<DocumentPasien>> getAllDocument() async { //menampilkan riwayat pemeriksaan seluruh pasien
     List<DocumentPasien> list = new List<DocumentPasien>();
     firestore.collection('users').get().then((value) {
       for(int i = 0; i<value.size; i++){

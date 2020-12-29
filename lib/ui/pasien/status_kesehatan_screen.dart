@@ -34,11 +34,11 @@ class _StatusSehatScreenState extends State<StatusSehatScreen> {
     checkData();
   }
 
-  void checkData() async {
+  void checkData() async { //menampilkan data terbaru pemeriksaan pasien berdasarkan email yang digunakan
     try {
       firestore.collection('users')
-          .doc(widget.email)
-          .collection("listDataPasien").orderBy('Tanggal', descending: false).get()
+          .doc(widget.email) //data email sebagai id document
+          .collection("listDataPasien").orderBy('Tanggal', descending: false).get() //ambil collection 'listDataPasien' dan sorting berdasarkan field 'Tanggal'
           .then((value) {
         if (value.size > 0) {
           Map<String, dynamic> data = value.docs.last.data();

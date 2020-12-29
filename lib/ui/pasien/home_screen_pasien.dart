@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreenPasien> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    checkDataLogin();
+    checkDataLogin(); //digunakan untuk memanggil data nama & email dari penyimpanan lokal
     Navigator.pop(context);
   }
 

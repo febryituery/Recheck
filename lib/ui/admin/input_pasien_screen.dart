@@ -40,7 +40,7 @@ class _InputPasienScreenState extends State<InputPasienScreen> {
   }
 
   void createNewData(BuildContext context, String nama, String email, int bpm, String jk, String notif, String status, String suhu, int umur) async {
-    firestore.collection("users")
+    firestore.collection("users") //input data pasien melalui node user
         .doc(email)
         .get()
         .then((value) async {
@@ -96,7 +96,7 @@ class _InputPasienScreenState extends State<InputPasienScreen> {
     firestore.terminate();
   }
 
-  void sendEmail(String email, String subject, String message) async {
+  void sendEmail(String email, String subject, String message) async { //kirim email notifikasi
     final Uri _emailLaunchUri = Uri(
         scheme: 'mailto',
         path: email,

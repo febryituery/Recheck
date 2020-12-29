@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreenAdmin> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    checkDataLogin();
+    checkDataLogin(); //digunakan untuk memanggil data nama & email dari penyimpanan lokal
   }
 
   void checkDataLogin() async {

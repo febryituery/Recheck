@@ -15,8 +15,8 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _emailController;
   TextEditingController _passwordController;
 
-  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']); // digunakan untuk mengambil data login email gmail
+  FirebaseFirestore firestore = FirebaseFirestore.instance; //inisialisasi library firestore
 
   _login() async{
     try{
@@ -40,10 +40,10 @@ class _LoginScreenState extends State<LoginScreen> {
           .then((value) {
         if (value.exists) {
           Map<String, dynamic> data = value.data();
-          if(data['Role'] == "admin") {
+          if(data['Role'] == "admin") { //jika admin, maka
             SharedPref().setPrefBool("isLogin", true);
             SharedPref().setPrefString("email", email);
-            SharedPref().setPrefString("nama", data['Nama']);
+            SharedPref().setPrefString("nama", data['Nama']); //data field di firestore
             SharedPref().setPrefString("role", data['Role']);
             Navigator.pushReplacement(
               context,
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
               ),
             );
-          } else if (data['Role'] == "pasien"){
+          } else if (data['Role'] == "pasien"){ // jika pasien, maka
             SharedPref().setPrefBool("isLogin", true);
             SharedPref().setPrefString("email", email);
             SharedPref().setPrefString("nama", data['Nama']);
@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    checkLogin();
+    checkLogin(); //function untuk melakukan pengecekan apakah user sudah pernah login. jika sudah, langsung ke halaman home
     _emailController = TextEditingController(text: '');
     _passwordController = TextEditingController(text: '');
   }

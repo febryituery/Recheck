@@ -8,8 +8,8 @@ bool USE_FIRESTORE_EMULATOR = false;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  if (USE_FIRESTORE_EMULATOR) {
+  await Firebase.initializeApp(); //inisialisasi library firebase
+  if (USE_FIRESTORE_EMULATOR) { //opsional hanya untuk firestore lokal
     FirebaseFirestore.instance.settings = Settings(
         host: 'localhost:8080', sslEnabled: false, persistenceEnabled: false);
   }

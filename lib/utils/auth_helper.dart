@@ -3,9 +3,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthHelper {
-  static FirebaseAuth _auth = FirebaseAuth.instance;
+  static FirebaseAuth _auth = FirebaseAuth.instance; //inisialisasi library firebase auth
 
-  Future<UserCredential> signInWithEmail({String email, String password}) async {
+  Future<UserCredential> signInWithEmail({String email, String password}) async { //function untuk login email & password
     return _auth.signInWithEmailAndPassword(
         email: email, password: password);
   }
@@ -21,9 +21,9 @@ class AuthHelper {
   }
 
   static logOut() async {
-    GoogleSignIn().signOut();
+    GoogleSignIn().signOut(); //logout seluruh akun google login dan firebase auth
     var shared = await SharedPreferences.getInstance();
-    shared.clear();
+    shared.clear(); //menghapus penyimpanan lokal (data status login, data email & username)
     return _auth.signOut();
   }
 }
